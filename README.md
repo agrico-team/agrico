@@ -6,3 +6,5 @@ Run using:
 ```flask --app app run --debug```
 
 Make sure you have [Flask installed](https://flask.palletsprojects.com/en/stable/installation/). 
+
+**Not for production. Only for testing purposes.**
