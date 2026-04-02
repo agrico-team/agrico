@@ -12,38 +12,46 @@
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="container-fluid d-flex align-items-center gap-2">
-      <!-- Brand -->
-      <a class="navbar-brand me-4" href="#">
-        <img src="images/logo.png" alt="agriCo" class="brand-logo navbar-logo" />
+  <nav class="navbar navbar-expand-lg border-bottom">
+    <div class="container px-3 px-md-4">
+
+      <a class="navbar-brand" href="#">
+        <img src="images/logo.png" class="navbar-logo img-fluid" alt="agriCo">
       </a>
 
-      <!-- Nav links (align right) -->
-      <div class="d-flex align-items-center gap-1 ms-auto">
-        <a class="nav-link" href="#">Accueil</a>
-        <a class="nav-link" href="#">Produits</a>
-        <a class="nav-link" href="#">Services</a>
+      <!-- bouton mobile -->
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Ouvrir le menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto d-flex flex-row flex-lg-row gap-1 gap-lg-2 mt-2 mt-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Produits</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+        </ul>
       </div>
+
     </div>
   </nav>
 
   <!-- MAIN -->
-  <div class="main-wrapper">
+  <main class="main-wrapper">
+
     <!-- Page brand -->
-    <div class="page-brand">
-      <img src="images/logo.png" alt="agriCo" class="brand-logo page-logo" />
+    <div class="page-brand mb-3">
+      <img src="images/logo.png" alt="agriCo" class="brand-logo page-logo img-fluid" />
     </div>
 
     <h1 class="page-title">Bon retour parmi nous</h1>
     <p class="page-subtitle">Ou <a href="signup.html">créez un compte gratuitement</a></p>
 
     <!-- Auth Card -->
-    <div class="auth-card">
+    <div class="auth-card w-100">
 
       <!-- Email -->
       <label class="form-label" for="email">Adresse e-mail</label>
-      <div class="input-group-custom">
+      <div class="input-group-custom mb-3">
         <span class="input-icon">
           <i class="fa-solid fa-envelope"></i>
         </span>
@@ -52,7 +60,7 @@
 
       <!-- Password -->
       <label class="form-label" for="password">Mot de passe</label>
-      <div class="input-group-custom">
+      <div class="input-group-custom mb-3">
         <span class="input-icon">
           <i class="fa-solid fa-lock"></i>
         </span>
@@ -63,7 +71,7 @@
       </div>
 
       <!-- Options row -->
-      <div class="form-options">
+      <div class="form-options d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
         <label class="custom-check">
           <input type="checkbox" id="remember"/>
           <span>Se souvenir de moi</span>
@@ -72,97 +80,94 @@
       </div>
 
       <!-- Submit -->
-      <button class="btn-connect" type="button">
+      <button class="btn-connect w-100 mb-4" type="button">
         Se connecter <span class="arrow">→</span>
       </button>
 
       <!-- Divider -->
-      <div class="or-divider">
+      <div class="or-divider mb-4">
         <hr/><span>Ou continuer avec</span><hr/>
       </div>
 
       <!-- Social -->
-      <div class="social-buttons">
-        <!-- Google -->
-        <button class="btn-social" type="button">
-          <i class="fa-brands fa-google" aria-hidden="true"></i>
-        </button>
-        <!-- Facebook -->
-        <button class="btn-social" type="button">
-          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-        </button>
+      <div class="social-buttons row g-3">
+        <div class="col-6">
+          <button class="btn-social w-100" type="button">
+            <i class="fa-brands fa-google" aria-hidden="true"></i>
+            <span class="d-none d-sm-inline ms-2">Google</span>
+          </button>
+        </div>
+        <div class="col-6">
+          <button class="btn-social w-100" type="button">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            <span class="d-none d-sm-inline ms-2">Facebook</span>
+          </button>
+        </div>
       </div>
 
     </div><!-- /auth-card -->
-  </div><!-- /main-wrapper -->
+  </main>
 
-<!-- Footer -->
+  <!-- Footer -->
   <footer class="agrico-footer">
     <div class="footer-main">
-        <div class="footer-col footer-brand">
-        <img src="images/logo2.png" alt="agriCo logo" class="footer-logo" />
-        <p class="footer-desc">
-            La plateforme leader pour connecter les acteurs du monde agricole.
-            Simplifiez vos échanges, optimisez votre production et accédez aux
-            meilleurs services.
-        </p>
-        </div>
 
-        <div class="footer-col">
+      <div class="footer-col footer-brand">
+        <img src="images/logo2.png" alt="agriCo logo" class="footer-logo img-fluid" />
+        <p class="footer-desc">
+          La plateforme leader pour connecter les acteurs du monde agricole.
+          Simplifiez vos échanges, optimisez votre production et accédez aux
+          meilleurs services.
+        </p>
+      </div>
+
+      <div class="footer-col">
         <h4 class="footer-heading">Liens rapides</h4>
         <ul class="footer-links">
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">Produits</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Mon Dashboard</a></li>
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Produits</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Mon Dashboard</a></li>
         </ul>
-        </div>
+      </div>
 
-        <div class="footer-col">
+      <div class="footer-col">
         <h4 class="footer-heading">Contact</h4>
         <ul class="footer-contact">
-            <li>
-            <span class="contact-icon">
-              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-            </span>
+          <li>
+            <span class="contact-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
             <span>123 Avenue de l'Agriculture, 75000 Paris</span>
-            </li>
-            <li>
-            <span class="contact-icon">
-              <i class="fa-solid fa-phone" aria-hidden="true"></i>
-            </span>
+          </li>
+          <li>
+            <span class="contact-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
             <span>+33 1 23 45 67 89</span>
-            </li>
-            <li>
-            <span class="contact-icon">
-              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-            </span>
+          </li>
+          <li>
+            <span class="contact-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
             <span>contact@agrico.fr</span>
-            </li>
+          </li>
         </ul>
-        </div>
+      </div>
 
-        <div class="footer-col">
+      <div class="footer-col">
         <h4 class="footer-heading">Suivez-nous</h4>
         <div class="footer-socials">
-            <!-- Facebook -->
-            <a href="#" class="social-btn" aria-label="Facebook">
+          <a href="#" class="social-btn" aria-label="Facebook">
             <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-            </a>
-            <!-- Twitter / X -->
-            <a href="#" class="social-btn" aria-label="Twitter">
+          </a>
+          <a href="#" class="social-btn" aria-label="Twitter">
             <i class="fa-brands fa-twitter" aria-hidden="true"></i>
-            </a>
-            <!-- Instagram -->
-            <a href="#" class="social-btn" aria-label="Instagram">
+          </a>
+          <a href="#" class="social-btn" aria-label="Instagram">
             <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-            </a>
+          </a>
         </div>
-        </div>
+      </div>
+
     </div>
 
     <div class="footer-bottom">
-        <p>© 2026 AgriCo. Tous droits réservés.</p>
+      <p>© 2026 AgriCo. Tous droits réservés.</p>
     </div>
   </footer>
 
