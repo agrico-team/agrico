@@ -1,1 +1,0 @@
-psql.exe -f create_db.sql postgresql://postgres:password@localhost
