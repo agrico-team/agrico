@@ -12,7 +12,7 @@ Permanently destroys the existing database (drops tables, indexes, enums, etc.).
 Empties the database of data, without dropping the tables themselves.
 
 ## Notes
-The database created is named "agricodb".
+The database created is called `agricodb`.
 
 ## Future Plans
 - Create a specialized user (maybe call it `agrico`)
