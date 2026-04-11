@@ -1,5 +1,5 @@
 ## Scripts
-These are useful scripts for creating the schema from scratch, emptying it out of data, or destroying the database completely.
+These are useful scripts for creating the database from scratch, emptying it out of data, or destroying the database completely. They make testing much quicker and easier.
 
 ## scripts/bat/create_db.bat
 Destroys the existing database. 
@@ -13,3 +13,8 @@ Empties the database of data, without dropping the tables themselves.
 
 ## Notes
 The database created is named "agricodb".
+
+## Future Plans
+- Create a specialized user (maybe call it `agrico`)
+- Add more useful constraints
+- Scripts to populate the database with fake data (using `Faker`, a Python library)
