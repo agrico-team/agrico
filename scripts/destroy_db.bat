@@ -1,0 +1,1 @@
+psql.exe -f destroy_db.sql postgresql://postgres:password@localhost
