@@ -12,10 +12,10 @@ ALTER DATABASE agricodb SET search_path TO agrico, public;
 BEGIN;
 
 -- TODO: better way to figure out the paths of the .sql scripts.
-\i ../schemas/user_data.sql;
-\i ../schemas/listings.sql;
-\i ../schemas/listing_purchases.sql;
-\i ../schemas/media.sql;
-\i ../schemas/engagements.sql;
+\i ../../schemas/user_data.sql;
+\i ../../schemas/listings.sql;
+\i ../../schemas/listing_purchases.sql;
+\i ../../schemas/media.sql;
+\i ../../schemas/engagements.sql;
 
 COMMIT;
