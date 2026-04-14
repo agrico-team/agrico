@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS product (
     product_quantity INTEGER NOT NULL DEFAULT 0,
     product_unit_price NUMERIC(19, 4) NOT NULL, 
 
-    product_delivery_date DATE NOT NULL -- might change,
+    product_delivery_date DATE NOT NULL, -- might change,
 
     product_status TEXT NOT NULL DEFAULT 'public',
 

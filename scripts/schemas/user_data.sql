@@ -1,13 +1,3 @@
-CREATE TABLE IF NOT EXISTS user_address (
-    address_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id UUID REFERENCES user_account ON DELETE CASCADE,
-    country TEXT NOT NULL,
-    state TEXT NOT NULL,
-    city TEXT NOT NULL,
-    street TEXT NOT NULL,
-    zipcode TEXT NOT NULL 
-);
-
 CREATE TABLE IF NOT EXISTS user_account (
     user_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     user_role TEXT NOT NULL,
@@ -30,8 +20,18 @@ CREATE TABLE IF NOT EXISTS user_account (
     
     -- Regex Constraints
     CONSTRAINT email_format CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'),
-    CONSTRAINT phone_format CHECK (phone_number ~* '^\+?[0-9]{10,15}$')
+    CONSTRAINT phone_format CHECK (phone_number ~* '^\+?[0-9]{10,15}$'),
     CONSTRAINT user_role_constraint CHECK (user_role IN ('admin', 'supplier', 'provider'))
+);
+
+CREATE TABLE IF NOT EXISTS user_address (
+    address_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID REFERENCES user_account ON DELETE CASCADE,
+    country TEXT NOT NULL,
+    state TEXT NOT NULL,
+    city TEXT NOT NULL,
+    street TEXT NOT NULL,
+    zipcode TEXT NOT NULL 
 );
 
 CREATE TABLE IF NOT EXISTS user_message (
