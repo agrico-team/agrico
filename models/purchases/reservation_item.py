@@ -1,4 +1,5 @@
-from common import *
+from base_model.base_model import *
+
 class ReservationItem(BaseModel):
     item_id = UUIDField(constraints=[SQL("DEFAULT gen_random_uuid()")], primary_key=True)
     item_quantity = IntegerField()

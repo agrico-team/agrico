@@ -1,4 +1,5 @@
-from common import *
+from base_model.base_model import *
+
 
 class ProductOrder(BaseModel):
     date_created = DateTimeTZField(null=True)

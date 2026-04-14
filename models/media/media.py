@@ -1,4 +1,5 @@
-from common import *
+from base_model.base_model import *
+
 
 class Media(BaseModel):
     media_id = UUIDField(constraints=[SQL("DEFAULT gen_random_uuid()")], primary_key=True)

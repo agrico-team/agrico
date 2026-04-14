@@ -1,4 +1,5 @@
-from common import *
+from base_model.base_model import *
+
 
 class Comment(BaseModel):
     comment_content = TextField()

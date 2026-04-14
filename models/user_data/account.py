@@ -1,4 +1,5 @@
-from common import *
+from base_model.base_model import *
+from base_model.base_model import *
 
 class Account(BaseModel):
     date_created = DateTimeTZField(constraints=[SQL("DEFAULT CURRENT_TIMESTAMP")])

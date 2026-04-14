@@ -1,4 +1,5 @@
-from common import *
+from base_model.base_model import *
+
 
 class Service(BaseModel):
     category = ForeignKeyField(column_name='category_id', field='category_id', model=Category)
