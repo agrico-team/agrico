@@ -1,11 +1,13 @@
+\c agricodb
+
 CREATE TABLE IF NOT EXISTS comment (
-    comment_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id UUID REFERENCES user_account ON DELETE CASCADE,
+    comment_id UUID NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES account ON DELETE CASCADE,
 
     parent_product_id UUID REFERENCES product ON DELETE CASCADE,
     parent_service_id UUID REFERENCES service ON DELETE CASCADE,
-    parent_profile_id UUID REFERENCES user_account ON DELETE CASCADE,
-    parent_post_id UUID REFERENCES user_post ON DELETE CASCADE,
+    parent_profile_id UUID REFERENCES account ON DELETE CASCADE,
+    parent_post_id UUID REFERENCES post ON DELETE CASCADE,
     parent_comment_id UUID REFERENCES comment ON DELETE CASCADE,
 
     comment_content TEXT NOT NULL,
@@ -21,13 +23,13 @@ CREATE TABLE IF NOT EXISTS comment (
 );
 
 CREATE TABLE IF NOT EXISTS impression (
-    impression_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id UUID NOT NULL REFERENCES user_account(user_id) ON DELETE CASCADE,
+    impression_id UUID NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES account ON DELETE CASCADE,
 
     parent_product_id UUID REFERENCES product ON DELETE CASCADE,
     parent_service_id UUID REFERENCES service ON DELETE CASCADE,
-    parent_profile_id UUID REFERENCES user_account ON DELETE CASCADE,
-    parent_post_id UUID REFERENCES user_post ON DELETE CASCADE,
+    parent_profile_id UUID REFERENCES account ON DELETE CASCADE,
+    parent_post_id UUID REFERENCES post ON DELETE CASCADE,
     parent_comment_id UUID REFERENCES comment ON DELETE CASCADE,
 
     impression TEXT NOT NULL,

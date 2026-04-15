@@ -1,6 +1,8 @@
+\c agricodb
+
 CREATE TABLE IF NOT EXISTS product_order (
-    order_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id UUID REFERENCES user_account, -- ON DELETE CASCADE,
+    order_id UUID NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES account, -- ON DELETE CASCADE,
     total_amount NUMERIC(19, 4) NOT NULL,
     date_created TIMESTAMPTZ,
 
@@ -8,8 +10,8 @@ CREATE TABLE IF NOT EXISTS product_order (
 );
 
 CREATE TABLE IF NOT EXISTS service_reservation (
-    reservation_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id UUID REFERENCES user_account, -- ON DELETE CASCADE,
+    reservation_id UUID NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES account, -- ON DELETE CASCADE,
     total_amount NUMERIC(19, 4) NOT NULL,
     date_created TIMESTAMPTZ,
 
@@ -17,9 +19,9 @@ CREATE TABLE IF NOT EXISTS service_reservation (
 );
 
 CREATE TABLE IF NOT EXISTS order_item (
-    item_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    product_id UUID REFERENCES product,
-    order_id UUID REFERENCES product_order,
+    item_id UUID NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+    product_id UUID NOT NULL REFERENCES product,
+    order_id UUID NOT NULL REFERENCES product_order,
     item_status TEXT NOT NULL,
     item_unit_price NUMERIC(19, 4) NOT NULL,
     item_quantity INTEGER NOT NULL,
@@ -31,9 +33,9 @@ CREATE TABLE IF NOT EXISTS order_item (
 );
 
 CREATE TABLE IF NOT EXISTS reservation_item (
-    item_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    service_id UUID REFERENCES service,
-    reservation_id UUID REFERENCES service_reservation,
+    item_id UUID NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+    service_id UUID NOT NULL REFERENCES service,
+    reservation_id UUID NOT NULL REFERENCES service_reservation,
     
     item_status TEXT NOT NULL,
     item_unit TEXT NOT NULL,

@@ -1,11 +1,12 @@
+\c agricodb
 CREATE TABLE IF NOT EXISTS category (
-    category_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    category_id UUID NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
     category_name TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS product (
-    product_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id UUID NOT NULL REFERENCES user_account ON DELETE CASCADE,
+    product_id UUID NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES account ON DELETE CASCADE,
     category_id UUID NOT NULL REFERENCES category, -- ON DELETE CASCASDE, maybe not
 
     product_title TEXT NOT NULL,
@@ -26,8 +27,8 @@ CREATE TABLE IF NOT EXISTS product (
 );
 
 CREATE TABLE IF NOT EXISTS service (
-    service_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id UUID NOT NULL REFERENCES user_account ON DELETE CASCADE,
+    service_id UUID NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES account ON DELETE CASCADE,
     category_id UUID NOT NULL REFERENCES category, -- ON DELETE CASCASDE, maybe not
 
     service_title TEXT NOT NULL,
