@@ -22,7 +22,10 @@ CREATE TABLE IF NOT EXISTS account (
     -- Regex Constraints
     CONSTRAINT email_format CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'),
     CONSTRAINT phone_format CHECK (phone_number ~* '^\+?[0-9]{8,15}$'),
-    CONSTRAINT user_role_constraint CHECK (user_role IN ('admin', 'supplier', 'provider'))
+    CONSTRAINT user_role_constraint CHECK (user_role IN ('admin', 'farmer', 'supplier', 'provider'))
+    -- supplier: for products
+    -- provider: for services
+    -- farmer: a regular customer
 );
 
 CREATE TABLE IF NOT EXISTS address (
