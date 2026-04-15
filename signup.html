@@ -15,7 +15,7 @@
   <nav class="navbar navbar-expand-lg border-bottom">
     <div class="container px-3 px-md-4">
 
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="index.html">
         <img src="images/logo.png" alt="agriCo" class="navbar-logo img-fluid">
       </a>
 
@@ -24,10 +24,10 @@
       </button>
 
       <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto d-flex flex-row flex-lg-row gap-1 gap-lg-2 mt-2 mt-lg-0">
-          <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Produits</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+        <ul class="navbar-nav ms-auto d-flex flex-column flex-lg-row gap-1 gap-lg-2 mt-2 mt-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="produits.html">Produits</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
         </ul>
       </div>
 
@@ -47,11 +47,22 @@
     <!-- Auth Card -->
     <div class="auth-card w-100">
 
-      <!-- Nom complet -->
-      <label class="form-label" for="fullname">Nom complet</label>
-      <div class="input-group-custom mb-3">
-        <span class="input-icon"><i class="fa-solid fa-user"></i></span>
-        <input type="text" id="fullname" placeholder="Jean Dupont" autocomplete="name"/>
+      <!-- Prénom et Nom -->
+      <div class="row g-2 mb-3">
+        <div class="col-12 col-md-6">
+          <label class="form-label" for="firstname">Prénom</label>
+          <div class="input-group-custom">
+            <span class="input-icon"><i class="fa-solid fa-user"></i></span>
+            <input type="text" id="firstname" placeholder="Jean" autocomplete="given-name"/>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <label class="form-label" for="lastname">Nom</label>
+          <div class="input-group-custom">
+            <span class="input-icon"><i class="fa-solid fa-user"></i></span>
+            <input type="text" id="lastname" placeholder="Dupont" autocomplete="family-name"/>
+          </div>
+        </div>
       </div>
 
       <!-- Email -->
@@ -76,7 +87,7 @@
         <label class="custom-check align-items-start">
           <input type="checkbox" id="cgu"/>
           <span>
-            J'accepte les <a href="#" class="cgu-link">Conditions d'utilisation et la Politique de confidentialité</a>
+            J'accepte les <a href="terms.html" class="cgu-link">Conditions d'utilisation et la Politique de confidentialité</a>
           </span>
         </label>
       </div>
@@ -126,10 +137,9 @@
       <div class="footer-col">
         <h4 class="footer-heading">Liens rapides</h4>
         <ul class="footer-links">
-          <li><a href="#">Accueil</a></li>
-          <li><a href="#">Produits</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Mon Dashboard</a></li>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="produits.html">Produits</a></li>
+          <li><a href="services.html">Services</a></li>
         </ul>
       </div>
 
@@ -138,15 +148,15 @@
         <ul class="footer-contact">
           <li>
             <span class="contact-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
-            <span>123 Avenue de l'Agriculture, 75000 Paris</span>
+            <span>123 Avenue de l'Agriculture</span>
           </li>
           <li>
             <span class="contact-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
-            <span>+33 1 23 45 67 89</span>
+            <span>+216 58 478 156</span>
           </li>
           <li>
             <span class="contact-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
-            <span>contact@agrico.fr</span>
+            <span>contact@agrico.tn</span>
           </li>
         </ul>
       </div>
@@ -154,15 +164,15 @@
       <div class="footer-col">
         <h4 class="footer-heading">Suivez-nous</h4>
         <div class="footer-socials">
-          <a href="#" class="social-btn" aria-label="Facebook">
+          <span class="social-btn" aria-label="Facebook">
             <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-          </a>
-          <a href="#" class="social-btn" aria-label="Twitter">
+          </span>
+          <span class="social-btn" aria-label="Twitter">
             <i class="fa-brands fa-twitter" aria-hidden="true"></i>
-          </a>
-          <a href="#" class="social-btn" aria-label="Instagram">
+          </span>
+          <span class="social-btn" aria-label="Instagram">
             <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-          </a>
+          </span>
         </div>
       </div>
 

@@ -1,0 +1,51 @@
+bugs found :
+	home.js:
+		1-duplication de la logique de pages.js , redefinit : starsHtml , 					serviceCardHtml,produitCardHtml,ShowTooltip,serviceDetailHtml,produitDetailHtaml , ces 			fct sont déjà presentes dans pages.js , w pages.js tchargi 9bal home.js fi index.html 			les fonctions existent déjà dans la portee globale ama home.js ma y3awdch ysta3mlhom =>			itha ken 3malna mise a jour l wahda ml les fct hethom fi pages.js ma yt3malch f home.js d		onc bug de maintenance garantie
+		
+	pages.js: 
+		1-dans la ligne 165 il y a une incoherence de colonnes entre pages sur produits.html les 		cartes utilisent col-xl-3 mais home.js elle utilise col-lg-4 => resultat : affichage 			different entre page d'acceuil et produits
+		
+		2-ligne 101:redondance inutile :
+			const price      = type === 'services' ? item.prix : item.prix;
+
+	auth.js:
+		1-fonctionne pour un seul champ de mdp li howa #togglePwd et #password
+
+	erreur de lien : 
+		1-login.html et signup.html et produit.html oon lien dashboard cassé
+			<a href="dashboard-agriculteur.html">Mon Dashboard</a> alors que fi index.html :
+			<a href="dashboards/agriculteur/dashboard-agriculteur.html">
+
+		2-reset-password.html : manque la navbar awesome et nunito -> les icones et la police ne 		se chargent pas
+		3-services-data.js : image dupliquée ->3 entrees diff partagent la meme URL d'images
+
+	Probleme CSS/html:
+		1- --agri-bg-alt ne9sa f :root;
+		2-lien mon dashboard mawjoud fi login w signup alors que itha ken ma 3andouch compte ou 		compte msakr ma ynjmch ychouf dashboard te3ou 
+		3-lien cassée fi produit w service ta3 dashboard
+		
+	
+
+		
+
+
+
+bugs fixed :
+
+	1-lien dashboard cassé:
+
+	2-reset-password.html : ajout de font awesome et nunito 
+
+	3-pages.js ligne 101: correction du duplication
+
+	4-pages.js et home.js : incoherence du grid produits ->ligne 165 fonction produitCardHtml
+
+	5-le code de home.js entierement duplique depuis pages.js :
+		bch n7ot helpers fi pages.js bch n3awd nsta3mlhom fi home.js
+	6-services-data.js:remplacement des images dupliquée fl s8,p2 w p5, mahich bug mais 5ayba haha
+	
+	7-auth.css zdt --agri-bg-alt eli ne9sa (zdtha f style.css zeda)
+
+	8-lien dashboard fi login w signup : fasa5tou
+	
+	9-lien cassée fi produits w services : badaltou b dashboards/agriculteur/dashboard-agriculteur.html w 7atit condition enou ma ynjm ychouf dashboard ella itha howa connecté

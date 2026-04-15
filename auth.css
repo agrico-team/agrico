@@ -7,6 +7,7 @@
   --agri-border:   #dcdee2;
   --agri-muted:    #8a8575;
   --agri-input-bg: #ffffff;
+  --agri-bg-alt:#f5f1ea;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -120,6 +121,12 @@ main.main-wrapper {
   max-width: 480px;
 }
 
+/* Ensure the card uses full available width on small screens and stays centered */
+.auth-card {
+  width: 100%;
+  margin: 0 auto;
+}
+
 /* Padding tighter on small screens */
 @media (max-width: 480px) {
   .auth-card {
@@ -151,6 +158,9 @@ main.main-wrapper {
   overflow: hidden;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
+
+/* Make input groups expand to their container width */
+.input-group-custom { width: 100%; }
 .input-group-custom:focus-within {
   border-color: var(--agri-green);
   box-shadow: 0 0 0 3px rgba(90, 122, 34, 0.12);
@@ -195,13 +205,6 @@ main.main-wrapper {
 }
 .btn-eye:hover { color: var(--agri-dark); }
 .btn-eye i { font-size: 1.05rem; }
-
-/* ─────────────────────────────────────────
-   REMEMBER / FORGOT ROW
-───────────────────────────────────────── */
-.form-options {
-  /* Uses Bootstrap d-flex + flex-wrap from HTML */
-}
 
 .custom-check {
   display: flex;
@@ -332,6 +335,7 @@ main.main-wrapper {
   background-color: #4e6120;
   color: #d9d4c2;
   font-family: 'Nunito', sans-serif;
+  margin-top: auto;
 }
 
 .footer-main {
