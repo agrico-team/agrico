@@ -36,7 +36,7 @@
 .svc-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 .svc-card-actions { display: flex; gap: 6px; }
 .svc-action-btn { width: 30px; height: 30px; border-radius: 8px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; transition: opacity 0.15s; }
-.svc-action-btn.edit { background: var(--blue-light);  color: var(--blue); }
+.svc-action-btn.edit { display: none; }
 .svc-action-btn.del  { background: #fee2e2; color: var(--red); }
 .svc-name { font-family: var(--font-head); font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
 .svc-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }

@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
           <div class="inv-search"><i class="fa fa-search"></i><input type="text" id="invSearch" placeholder="Rechercher..."/></div>
           <select class="btn-outline" id="statusFilter" style="padding:9px 14px"><option value="">Tous les statuts</option><option value="en-stock">En stock</option><option value="faible">Stock faible</option><option value="rupture">Rupture</option></select>
-          <button class="export-btn" id="exportBtn"><i class="fa fa-download"></i> Exporter CSV</button>
+          <!-- export button removed -->
         </div>
       </div>
       <div class="table-wrap">
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderRows(inventory.filter(i => i.name.toLowerCase().includes(q) && (!this.value || i.status === this.value)));
   });
 
-  document.getElementById('exportBtn').addEventListener('click', () => showToast('Export CSV téléchargé !'));
+  // Export button removed
 
   /* Modal produit */
   function getProductFields() {

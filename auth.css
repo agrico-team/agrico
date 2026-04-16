@@ -281,52 +281,7 @@ main.main-wrapper {
 .btn-connect:active { transform: translateY(0); }
 .btn-connect .arrow { font-size: 1.1rem; }
 
-/* ─────────────────────────────────────────
-   OR DIVIDER
-───────────────────────────────────────── */
-.or-divider {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-.or-divider hr {
-  flex: 1;
-  border: none;
-  border-top: 1.5px solid var(--agri-border);
-  margin: 0;
-}
-.or-divider span {
-  font-size: 0.82rem;
-  color: var(--agri-muted);
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-/* ─────────────────────────────────────────
-   SOCIAL BUTTONS
-   Uses Bootstrap row/col in HTML — only style the button itself here
-───────────────────────────────────────── */
-.btn-social {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1.5px solid var(--agri-border);
-  border-radius: 10px;
-  background: #fff;
-  padding: 0.7rem 1rem;
-  cursor: pointer;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: 0.88rem;
-  color: #2a2a2a;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
-}
-.btn-social:hover {
-  border-color: #aaa;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  transform: translateY(-1px);
-}
-.btn-social i { font-size: 1rem; }
+/* Social auth UI removed (Google / Facebook auth buttons no longer used) */
 
 /* ─────────────────────────────────────────
    FOOTER

@@ -35,9 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <nav class="tab-nav">
           <button class="tab-nav-btn active" data-tab="personal"><i class="fa fa-user"></i> Infos Personnelles</button>
-          <button class="tab-nav-btn" data-tab="exploitation"><i class="fa fa-tractor"></i> Exploitation</button>
-          <button class="tab-nav-btn" data-tab="security"><i class="fa fa-shield-halved"></i> Sécurité</button>
-          <button class="tab-nav-btn" data-tab="notifications"><i class="fa fa-bell"></i> Notifications</button>
         </nav>
       </div>
 
@@ -83,128 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
 
-        <!-- EXPLOITATION -->
-        <div class="tab-pane" id="tab-exploitation">
-          <h3 class="pane-title">Détails de l'Exploitation</h3>
-          <div class="form-grid">
-            <div class="field">
-              <label>Nom de l'exploitation</label>
-              <div class="field-input-wrap">
-                <i class="fa fa-tractor field-icon"></i>
-                <input type="text" value="Ferme des Plaines"/>
-              </div>
-            </div>
-            <div class="field">
-              <label>Numéro SIRET</label>
-              <div class="field-input-wrap">
-                <i class="fa fa-credit-card field-icon"></i>
-                <input type="text" value="123 456 789 00012"/>
-              </div>
-            </div>
-            <div class="field">
-              <label>Type d'activité</label>
-              <div class="field-input-wrap">
-                <i class="fa fa-tag field-icon"></i>
-                <select>
-                  <option selected>Céréales</option>
-                  <option>Élevage</option>
-                  <option>Maraîchage</option>
-                  <option>Viticulture</option>
-                  <option>Services techniques</option>
-                </select>
-              </div>
-            </div>
-            <div class="field">
-              <label>Surface / Taille</label>
-              <div class="field-input-wrap">
-                <i class="fa fa-expand field-icon"></i>
-                <input type="text" value="150 hectares"/>
-              </div>
-            </div>
-            <div class="field">
-              <label>Région</label>
-              <div class="field-input-wrap">
-                <i class="fa fa-map field-icon"></i>
-                <select>
-                  <option>Occitanie</option>
-                  <option>Bretagne</option>
-                  <option>Normandie</option>
-                  <option>Nouvelle-Aquitaine</option>
-                  <option>Île-de-France</option>
-                </select>
-              </div>
-            </div>
-            <div class="field">
-              <label>Année de création</label>
-              <div class="field-input-wrap">
-                <i class="fa fa-calendar field-icon"></i>
-                <input type="number" value="2008"/>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SECURITY -->
-        <div class="tab-pane" id="tab-security">
-          <h3 class="pane-title">Sécurité du Compte</h3>
-          <div class="form-grid single">
-            <div class="field">
-              <label>Mot de passe actuel</label>
-              <div class="field-input-wrap">
-                <i class="fa fa-lock field-icon"></i>
-                <input type="password" placeholder="••••••••"/>
-              </div>
-            </div>
-            <div class="field">
-              <label>Nouveau mot de passe</label>
-              <div class="field-input-wrap">
-                <i class="fa fa-key field-icon"></i>
-                <input type="password" placeholder="••••••••"/>
-              </div>
-            </div>
-            <div class="field">
-              <label>Confirmer le nouveau mot de passe</label>
-              <div class="field-input-wrap">
-                <i class="fa fa-key field-icon"></i>
-                <input type="password" placeholder="••••••••"/>
-              </div>
-            </div>
-          </div>
-          <button class="save-btn" style="margin-top:20px" onclick="showSaved(this)">
-            <i class="fa fa-floppy-disk"></i> Mettre à jour
-          </button>
-
-          <div class="danger-zone">
-            <h4>Zone de danger</h4>
-            <p>Une fois votre compte supprimé, toutes vos données seront définitivement perdues.</p>
-            <button class="danger-btn" onclick="if(confirm('Supprimer le compte ?')) alert('Compte supprimé.')">
-              Supprimer mon compte
-            </button>
-          </div>
-        </div>
-
-        <!-- NOTIFICATIONS -->
-        <div class="tab-pane" id="tab-notifications">
-          <h3 class="pane-title">Préférences de Notifications</h3>
-          <div class="toggle-list">
-            ${[
-              { id:'n1', title:'Nouvelles commandes', desc:'Recevoir un e-mail pour chaque nouvelle commande ou réservation.', checked:true },
-              { id:'n2', title:'Messages directs', desc:'Être notifié par e-mail lorsqu\'un utilisateur vous contacte.', checked:true },
-              { id:'n3', title:'Alertes marché', desc:'Recevoir les variations importantes des prix du marché agricole.', checked:false },
-              { id:'n4', title:'Alertes météo', desc:'Recevoir des alertes en cas de conditions météo extrêmes prévues.', checked:true },
-              { id:'n5', title:'Newsletter AgriCo', desc:'Recevoir les actualités et nouveautés de la plateforme.', checked:false },
-            ].map(n => `
-              <div class="toggle-row">
-                <div class="toggle-info">
-                  <h4>${n.title}</h4>
-                  <p>${n.desc}</p>
-                </div>
-                <label class="toggle-switch">
-                  <input type="checkbox" ${n.checked ? 'checked' : ''}/>
-                  <span class="toggle-slider"></span>
-                </label>
-              </div>`).join('')}
-          </div>
         </div>
 
       </div>

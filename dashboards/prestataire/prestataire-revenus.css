@@ -13,12 +13,8 @@
 .rev-icon.blue  { background: var(--blue-light);  color: var(--blue); }
 .rev-icon.green { background: var(--green-light); color: var(--green-btn); }
 .rev-icon.gold  { background: var(--gold-light);  color: var(--gold); }
-.rev-trend { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; font-weight: 700; }
-.rev-trend.up   { color: #22c55e; }
-.rev-trend.down { color: #ef4444; }
 .rev-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
 .rev-value { font-family: var(--font-head); font-size: 2rem; font-weight: 700; color: var(--text); }
-
 /* Charts grid */
 .charts-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-bottom: 28px; }
 .chart-card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); padding: 28px; }
@@ -53,14 +49,7 @@
 .tx-amount.positive { color: #22c55e; }
 .tx-amount.pending  { color: var(--gold); }
 
-/* Export btn */
-.export-btn {
-  display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px;
-  background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm);
-  font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
-  color: var(--text-muted); cursor: pointer; transition: all 0.15s;
-}
-.export-btn:hover { background: #e0ddd5; color: var(--text); }
+/* Export styles removed (button removed from markup) */
 
 @media (max-width: 1100px) { .rev-stats { grid-template-columns: 1fr; } .charts-grid { grid-template-columns: 1fr; } }
 @media (max-width: 700px)  { .rev-stats { grid-template-columns: 1fr 1fr; } }

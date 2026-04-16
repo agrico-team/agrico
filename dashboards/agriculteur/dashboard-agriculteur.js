@@ -4,85 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ================================================
-     1. CHART DES DÉPENSES (Chart.js)
-  ================================================ */
-  const chartData = {
-    '6mois': {
-      labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin'],
-      values: [400, 300, 600, 800, 500, 900],
-    },
-    'annee': {
-      labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'],
-      values: [400, 300, 600, 800, 500, 900, 700, 650, 750, 820, 610, 940],
-    },
-    'trimestre': {
-      labels: ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5', 'Sem 6', 'Sem 7', 'Sem 8', 'Sem 9', 'Sem 10', 'Sem 11', 'Sem 12', 'Sem 13'],
-      values: [200, 340, 280, 420, 390, 510, 470, 600, 540, 610, 680, 720, 760],
-    },
-  };
-
-  const GREEN = '#4a6741';
-  const BLUE  = '#58748c';
-
-  const ctx = document.getElementById('depensesChart').getContext('2d');
-
-  function buildColors(values) {
-    return values.map((_, i) => (i === values.length - 1 ? GREEN : BLUE));
-  }
-
-  const chart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: chartData['6mois'].labels,
-      datasets: [{
-        data: chartData['6mois'].values,
-        backgroundColor: buildColors(chartData['6mois'].values),
-        borderRadius: 6,
-        borderSkipped: false,
-      }],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: '#fff',
-          titleColor: '#1a2010',
-          bodyColor: '#4a6741',
-          borderColor: '#eaeae5',
-          borderWidth: 1,
-          padding: 12,
-          cornerRadius: 10,
-          callbacks: {
-            label: ctx => ' ' + ctx.parsed.y + ' €',
-          },
-        },
-      },
-      scales: {
-        x: {
-          grid: { display: false },
-          border: { display: false },
-          ticks: { color: '#9ca3af', font: { size: 11, family: 'DM Sans' } },
-        },
-        y: {
-          grid: { color: '#f0f0f0', drawBorder: false },
-          border: { display: false },
-          ticks: { color: '#9ca3af', font: { size: 11, family: 'DM Sans' } },
-        },
-      },
-    },
-  });
-
-  /* Period select */
-  document.getElementById('periodSelect').addEventListener('change', function () {
-    const d = chartData[this.value];
-    chart.data.labels = d.labels;
-    chart.data.datasets[0].data = d.values;
-    chart.data.datasets[0].backgroundColor = buildColors(d.values);
-    chart.update();
-  });
+  /* Charts removed (dépenses) */
 
   /* ================================================
      2. ROLE SWITCHER
@@ -136,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('btnNouvCmd').addEventListener('click', () => window.location.href = '../../produits.html');
   document.getElementById('btnReserve').addEventListener('click', () => window.location.href = '../../services.html');
-  document.getElementById('btnSupport').addEventListener('click', () => openModal('Contacter le Support'));
+  // Bouton 'Contacter Support' supprimé — listener retiré
 
   modalClose.addEventListener('click', closeModal);
 
@@ -189,12 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ================================================
      8. CALENDAR BUTTON
   ================================================ */
-  document.querySelector('.icon-btn[title="Calendrier"]').addEventListener('click', () => {
-    const today = new Date().toLocaleDateString('fr-FR', {
-      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-    });
-    alert('Aujourd\'hui : ' + today);
-  });
+  // Bouton Calendrier supprimé — listener retiré
 
   /* ================================================
      9. DOTS MENU (table options)

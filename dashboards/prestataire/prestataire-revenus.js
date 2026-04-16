@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <header class="main-header">
       <div><h1 class="page-title">Revenus</h1><p class="page-sub">Analysez vos revenus et vos performances financières.</p></div>
       <div class="header-actions">
-        <button class="export-btn"><i class="fa fa-download"></i> Exporter</button>
         <div class="avatar">MP</div>
       </div>
     </header>
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="rev-stat">
         <div class="rev-stat-top">
           <div class="rev-icon blue"><i class="fa fa-euro-sign"></i></div>
-          <div class="rev-trend up"><i class="fa fa-arrow-trend-up"></i> +18.5%</div>
         </div>
         <p class="rev-label">Revenus totaux</p>
         <h3 class="rev-value">23 840€</h3>
@@ -36,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="rev-stat">
         <div class="rev-stat-top">
           <div class="rev-icon green"><i class="fa fa-chart-bar"></i></div>
-          <div class="rev-trend up"><i class="fa fa-arrow-trend-up"></i> +12.2%</div>
         </div>
         <p class="rev-label">Ce mois</p>
         <h3 class="rev-value">3 840€</h3>
@@ -44,32 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="rev-stat">
         <div class="rev-stat-top">
           <div class="rev-icon gold"><i class="fa fa-clock"></i></div>
-          <div class="rev-trend down"><i class="fa fa-arrow-trend-down"></i> -3.1%</div>
         </div>
         <p class="rev-label">En attente</p>
         <h3 class="rev-value">1 235€</h3>
       </div>
     </div>
 
-    <!-- Charts -->
-    <div class="charts-grid">
-      <div class="chart-card">
-        <div class="chart-card-header">
-          <h3 class="chart-card-title">Évolution des revenus</h3>
-          <select class="period-select" id="periodSelect">
-            <option value="semaine">Cette semaine</option>
-            <option value="mois">Ce mois</option>
-            <option value="annee">Cette année</option>
-          </select>
-        </div>
-        <div class="chart-wrap"><canvas id="areaChart"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-card-header"><h3 class="chart-card-title">Par service</h3></div>
-        <div class="donut-wrap"><canvas id="donutChart"></canvas></div>
-        <div class="legend-list" id="legendList"></div>
-      </div>
-    </div>
+    <!-- Graphs removed (évolution & répartition) -->
 
     <!-- Transactions -->
     <div class="tx-card">
@@ -86,72 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initSidebar('revenus');
 
-  /* ---- Area chart ---- */
-  const chartData = {
-    semaine: { labels:['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'], values:[120,300,200,450,400,600,550] },
-    mois:    { labels:['S1','S2','S3','S4'], values:[1200,1800,1400,2100] },
-    annee:   { labels:['Jan','Fév','Mar','Avr','Mai','Juin','Juil','Août','Sep','Oct','Nov','Déc'], values:[1800,2100,1600,2400,2900,2600,3200,3000,2800,3100,2900,3840] },
-  };
-
-  const aCtx = document.getElementById('areaChart').getContext('2d');
-  function mkGrad(ctx) {
-    const g = ctx.createLinearGradient(0,0,0,240);
-    g.addColorStop(0,'rgba(88,116,140,0.2)');
-    g.addColorStop(1,'rgba(88,116,140,0)');
-    return g;
-  }
-
-  const areaChart = new Chart(aCtx, {
-    type: 'line',
-    data: {
-      labels: chartData.semaine.labels,
-      datasets: [{
-        data: chartData.semaine.values,
-        borderColor: '#58748c', borderWidth: 2.5,
-        pointBackgroundColor: '#58748c', pointRadius: 4, pointHoverRadius: 6,
-        fill: true, backgroundColor: mkGrad(aCtx), tension: 0.4,
-      }],
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend:{ display:false }, tooltip:{ backgroundColor:'#fff', titleColor:'#1a2010', bodyColor:'#58748c', borderColor:'#eaeae5', borderWidth:1, padding:12, cornerRadius:10, callbacks:{ label: c => ' ' + c.parsed.y + ' €' } } },
-      scales: {
-        x: { grid:{ display:false }, border:{ display:false }, ticks:{ color:'#9ca3af', font:{ size:11 } } },
-        y: { grid:{ color:'#f0f0f0' }, border:{ display:false }, ticks:{ color:'#9ca3af', font:{ size:11 } } },
-      },
-    },
-  });
-
-  document.getElementById('periodSelect').addEventListener('change', function() {
-    const d = chartData[this.value];
-    areaChart.data.labels = d.labels;
-    areaChart.data.datasets[0].data = d.values;
-    areaChart.data.datasets[0].backgroundColor = mkGrad(aCtx);
-    areaChart.update();
-  });
-
-  /* ---- Donut chart ---- */
-  const categories = [
-    { name:'Labour',     pct:35, color:'#58748c' },
-    { name:'Irrigation', pct:28, color:'#4a6741' },
-    { name:'Plantation', pct:20, color:'#d4a017' },
-    { name:'Conseil',    pct:17, color:'#94a3b8' },
-  ];
-
-  new Chart(document.getElementById('donutChart').getContext('2d'), {
-    type: 'doughnut',
-    data: {
-      labels: categories.map(c=>c.name),
-      datasets: [{ data: categories.map(c=>c.pct), backgroundColor: categories.map(c=>c.color), borderWidth:0, hoverOffset:6 }],
-    },
-    options: { responsive:true, maintainAspectRatio:false, cutout:'68%', plugins:{ legend:{ display:false }, tooltip:{ callbacks:{ label: c => ' ' + c.label + ' : ' + c.parsed + '%' } } } },
-  });
-
-  document.getElementById('legendList').innerHTML = categories.map(c => `
-    <div class="leg-item">
-      <div class="leg-left"><div class="leg-dot" style="background:${c.color}"></div><span class="leg-name">${c.name}</span></div>
-      <span class="leg-pct">${c.pct}%</span>
-    </div>`).join('');
+  /* Charts removed (évolution & répartition) */
 
   /* ---- Transactions ---- */
   function renderTx(data) {
@@ -172,8 +85,5 @@ document.addEventListener('DOMContentLoaded', () => {
     renderTx(transactions.filter(t => t.name.toLowerCase().includes(q)));
   });
 
-  document.querySelector('.export-btn').addEventListener('click', () => {
-    showToast('Export en cours...');
-    setTimeout(() => showToast('Fichier téléchargé !'), 1200);
-  });
+  // Export button removed
 });

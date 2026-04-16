@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="header-actions">
         <div class="view-toggle">
           <button class="view-btn active" id="viewList" title="Liste"><i class="fa fa-list"></i></button>
-          <button class="view-btn" id="viewCal"  title="Calendrier"><i class="fa fa-calendar"></i></button>
         </div>
         <div class="avatar">JD</div>
       </div>
@@ -180,17 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const calView  = document.getElementById('calView');
   document.getElementById('viewList').addEventListener('click', function() {
     this.classList.add('active');
-    document.getElementById('viewCal').classList.remove('active');
     listView.style.display = 'block';
     calView.style.display  = 'none';
   });
-  document.getElementById('viewCal').addEventListener('click', function() {
-    this.classList.add('active');
-    document.getElementById('viewList').classList.remove('active');
-    listView.style.display = 'none';
-    calView.style.display  = 'block';
-    renderCalendar();
-  });
+  // viewCal removed — calendar toggle disabled
 
   /* Calendar */
   let calYear = 2024, calMonth = 2; // March 2024

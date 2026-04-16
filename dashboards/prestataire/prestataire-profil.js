@@ -46,10 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <nav class="tab-nav">
           <button class="tab-nav-btn active" data-tab="personal"><i class="fa fa-user"></i> Infos Personnelles</button>
-          <button class="tab-nav-btn" data-tab="entreprise"><i class="fa fa-building"></i> Entreprise</button>
-          <button class="tab-nav-btn" data-tab="competences"><i class="fa fa-wrench"></i> Compétences</button>
-          <button class="tab-nav-btn" data-tab="security"><i class="fa fa-shield-halved"></i> Sécurité</button>
-          <button class="tab-nav-btn" data-tab="notifications"><i class="fa fa-bell"></i> Notifications</button>
         </nav>
       </div>
 
@@ -99,129 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <button class="save-btn" onclick="showSaved(this)"><i class="fa fa-floppy-disk"></i> Enregistrer</button>
         </div>
 
-        <!-- ENTREPRISE -->
-        <div class="tab-pane" id="tab-entreprise">
-          <h3 class="pane-title">Informations Entreprise</h3>
-          <div class="form-grid">
-            <div class="field">
-              <label>Nom de l'entreprise</label>
-              <div class="field-wrap"><i class="fa fa-building field-icon"></i><input type="text" value="AgriService Pro"/></div>
-            </div>
-            <div class="field">
-              <label>Numéro SIRET</label>
-              <div class="field-wrap"><i class="fa fa-credit-card field-icon"></i><input type="text" value="987 654 321 00021"/></div>
-            </div>
-            <div class="field">
-              <label>Type d'activité</label>
-              <div class="field-wrap">
-                <i class="fa fa-tag field-icon"></i>
-                <select>
-                  <option selected>Services agricoles</option>
-                  <option>Travaux mécanisés</option>
-                  <option>Conseil agricole</option>
-                  <option>Location matériel</option>
-                </select>
-              </div>
-            </div>
-            <div class="field">
-              <label>Année de création</label>
-              <div class="field-wrap"><i class="fa fa-calendar field-icon"></i><input type="number" value="2014"/></div>
-            </div>
-            <div class="field">
-              <label>Nombre d'employés</label>
-              <div class="field-wrap"><i class="fa fa-users field-icon"></i>
-                <select>
-                  <option>Indépendant</option>
-                  <option selected>1-5</option>
-                  <option>6-20</option>
-                  <option>20+</option>
-                </select>
-              </div>
-            </div>
-            <div class="field">
-              <label>Assurance professionnelle</label>
-              <div class="field-wrap"><i class="fa fa-shield-halved field-icon"></i><input type="text" value="AXA Pro — N°123456789"/></div>
-            </div>
-          </div>
-          <button class="save-btn" onclick="showSaved(this)"><i class="fa fa-floppy-disk"></i> Enregistrer</button>
-        </div>
-
-        <!-- COMPETENCES -->
-        <div class="tab-pane" id="tab-competences">
-          <h3 class="pane-title">Compétences & Certifications</h3>
-          <div class="field" style="margin-bottom:24px">
-            <label>Compétences</label>
-            <div class="skills-wrap" id="skillsWrap">${skillsHTML()}</div>
-            <div class="skill-add">
-              <input type="text" id="skillInput" placeholder="Ajouter une compétence..."/>
-              <button class="btn-blue" id="btnAddSkill" style="padding:10px 16px"><i class="fa fa-plus"></i></button>
-            </div>
-          </div>
-          <div class="form-grid" style="margin-top:24px">
-            <div class="field">
-              <label>Certifications</label>
-              <div class="field-wrap"><i class="fa fa-certificate field-icon"></i><input type="text" value="Certiphyto, CACES R482"/></div>
-            </div>
-            <div class="field">
-              <label>Langues</label>
-              <div class="field-wrap"><i class="fa fa-language field-icon"></i><input type="text" value="Français, Anglais"/></div>
-            </div>
-            <div class="field full">
-              <label>Matériels disponibles</label>
-              <textarea>Tracteur John Deere 120CV, Drone DJI Agras T30, Système d'irrigation goutte-à-goutte, Semoir de précision, Épandeur d'engrais.</textarea>
-            </div>
-          </div>
-          <button class="save-btn" onclick="showSaved(this)"><i class="fa fa-floppy-disk"></i> Enregistrer</button>
-        </div>
-
-        <!-- SECURITY -->
-        <div class="tab-pane" id="tab-security">
-          <h3 class="pane-title">Sécurité du Compte</h3>
-          <div class="form-grid single">
-            <div class="field">
-              <label>Mot de passe actuel</label>
-              <div class="field-wrap"><i class="fa fa-lock field-icon"></i><input type="password" placeholder="••••••••"/></div>
-            </div>
-            <div class="field">
-              <label>Nouveau mot de passe</label>
-              <div class="field-wrap"><i class="fa fa-key field-icon"></i><input type="password" placeholder="••••••••"/></div>
-            </div>
-            <div class="field">
-              <label>Confirmer le mot de passe</label>
-              <div class="field-wrap"><i class="fa fa-key field-icon"></i><input type="password" placeholder="••••••••"/></div>
-            </div>
-          </div>
-          <button class="save-btn" onclick="showSaved(this)" style="margin-top:20px"><i class="fa fa-floppy-disk"></i> Mettre à jour</button>
-          <div class="danger-zone">
-            <h4>Zone de danger</h4>
-            <p>Une fois votre compte supprimé, toutes vos données seront définitivement perdues.</p>
-            <button class="danger-btn" onclick="if(confirm('Supprimer le compte ?')) showToast('Compte supprimé.', 'error')">Supprimer mon compte</button>
-          </div>
-        </div>
-
-        <!-- NOTIFICATIONS -->
-        <div class="tab-pane" id="tab-notifications">
-          <h3 class="pane-title">Préférences de Notifications</h3>
-          <div class="toggle-list">
-            ${[
-              { title:'Nouvelles réservations',   desc:'Être notifié dès qu\'un client soumet une demande.',             on:true  },
-              { title:'Confirmation de paiement', desc:'Recevoir un e-mail à chaque paiement validé.',                   on:true  },
-              { title:'Rappels de rendez-vous',   desc:'Rappel 24h avant chaque prestation planifiée.',                  on:true  },
-              { title:'Nouveaux avis',             desc:'Être notifié quand un client laisse un avis.',                  on:true  },
-              { title:'Alertes météo',             desc:'Recevoir des alertes si des conditions météo impactent vos prestations.', on:false },
-              { title:'Newsletter AgriCo',         desc:'Actualités et nouveautés de la plateforme.',                    on:false },
-            ].map(n => `
-              <div class="toggle-row">
-                <div class="toggle-info"><h4>${n.title}</h4><p>${n.desc}</p></div>
-                <label class="toggle-switch">
-                  <input type="checkbox" ${n.on ? 'checked' : ''}/>
-                  <span class="toggle-slider"></span>
-                </label>
-              </div>`).join('')}
-          </div>
-          <button class="save-btn" onclick="showSaved(this)"><i class="fa fa-floppy-disk"></i> Enregistrer</button>
-        </div>
-
       </div><!-- /content-panel -->
     </div>
   </main>`;
@@ -247,30 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   document.getElementById('globalSave').addEventListener('click', function() { showSaved(this); });
 
-  /* Skills */
-  function renderSkills() {
-    document.getElementById('skillsWrap').innerHTML = skillsHTML();
-    document.querySelectorAll('.remove-skill').forEach(btn => {
-      btn.addEventListener('click', () => {
-        skills = skills.filter(s => s !== btn.dataset.skill);
-        renderSkills();
-      });
-    });
-  }
-  renderSkills();
-
-  document.getElementById('btnAddSkill').addEventListener('click', () => {
-    const val = document.getElementById('skillInput').value.trim();
-    if (val && !skills.includes(val)) {
-      skills.push(val);
-      document.getElementById('skillInput').value = '';
-      renderSkills();
-      showToast('Compétence ajoutée !');
-    }
-  });
-  document.getElementById('skillInput').addEventListener('keydown', e => {
-    if (e.key === 'Enter') document.getElementById('btnAddSkill').click();
-  });
+  /* Compétences removed (section deleted from DOM) */
 
   /* Avatar upload */
   document.getElementById('avatarUpload').addEventListener('click', () => {

@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <header class="main-header">
       <div><h1 class="page-title">Revenus</h1><p class="page-sub">Analysez vos performances financières et vos ventes.</p></div>
       <div class="header-actions">
-        <button class="btn-outline" id="exportBtn"><i class="fa fa-download"></i> Exporter</button>
         <div class="avatar">AF</div>
       </div>
     </header>
@@ -48,42 +47,24 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Stats -->
     <div class="rev-stats">
       <div class="rev-stat">
-        <div class="rev-stat-top"><div class="rev-icon gold"><i class="fa fa-euro-sign"></i></div><div class="rev-trend up"><i class="fa fa-arrow-trend-up"></i> +22.4%</div></div>
+        <div class="rev-stat-top"><div class="rev-icon gold"><i class="fa fa-euro-sign"></i></div></div>
         <p class="rev-label">Revenus totaux</p><h3 class="rev-value">124 500€</h3>
       </div>
       <div class="rev-stat">
-        <div class="rev-stat-top"><div class="rev-icon green"><i class="fa fa-chart-bar"></i></div><div class="rev-trend up"><i class="fa fa-arrow-trend-up"></i> +15.8%</div></div>
+        <div class="rev-stat-top"><div class="rev-icon green"><i class="fa fa-chart-bar"></i></div></div>
         <p class="rev-label">Ce mois</p><h3 class="rev-value">12 450€</h3>
       </div>
       <div class="rev-stat">
-        <div class="rev-stat-top"><div class="rev-icon blue"><i class="fa fa-bag-shopping"></i></div><div class="rev-trend up"><i class="fa fa-arrow-trend-up"></i> +9.2%</div></div>
+        <div class="rev-stat-top"><div class="rev-icon blue"><i class="fa fa-bag-shopping"></i></div></div>
         <p class="rev-label">Commandes livrées</p><h3 class="rev-value">115</h3>
       </div>
       <div class="rev-stat">
-        <div class="rev-stat-top"><div class="rev-icon orange"><i class="fa fa-clock"></i></div><div class="rev-trend down"><i class="fa fa-arrow-trend-down"></i> -4.1%</div></div>
+        <div class="rev-stat-top"><div class="rev-icon orange"><i class="fa fa-clock"></i></div></div>
         <p class="rev-label">En attente</p><h3 class="rev-value">3 240€</h3>
       </div>
     </div>
 
-    <!-- Charts -->
-    <div class="charts-grid">
-      <div class="chart-card">
-        <div class="chart-card-header">
-          <h3 class="chart-card-title">Évolution des revenus</h3>
-          <select class="period-select" id="periodSelect">
-            <option value="semaine">Cette semaine</option>
-            <option value="mois">Ce mois</option>
-            <option value="annee">Cette année</option>
-          </select>
-        </div>
-        <div class="chart-wrap"><canvas id="revenusChart"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-card-header"><h3 class="chart-card-title">Par catégorie</h3></div>
-        <div class="donut-wrap"><canvas id="donutChart"></canvas></div>
-        <div class="legend-list" id="legendList"></div>
-      </div>
-    </div>
+    <!-- Graphs removed (évolution & répartition) -->
 
     <!-- Top products -->
     <div class="top-products">
@@ -112,51 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initSidebar('revenus');
 
-  /* Bar chart */
-  const barCtx = document.getElementById('revenusChart').getContext('2d');
-  const barChart = new Chart(barCtx, {
-    type: 'bar',
-    data: {
-      labels: chartData.semaine.labels,
-      datasets: [{
-        data: chartData.semaine.values,
-        backgroundColor: chartData.semaine.values.map((_,i,a) => i===a.length-1 ? '#c8940e' : '#4a6741'),
-        borderRadius: 6, borderSkipped: false,
-      }],
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend:{ display:false }, tooltip:{ backgroundColor:'#fff', titleColor:'#1a1a10', bodyColor:'#c8940e', borderColor:'#e8e6de', borderWidth:1, padding:12, cornerRadius:10, callbacks:{ label: c => ' ' + c.parsed.y.toLocaleString('fr-FR') + ' €' } } },
-      scales: {
-        x: { grid:{ display:false }, border:{ display:false }, ticks:{ color:'#9ca3af', font:{ size:11 } } },
-        y: { grid:{ color:'#f0f0f0' }, border:{ display:false }, ticks:{ color:'#9ca3af', font:{ size:11 } } },
-      },
-    },
-  });
-
-  document.getElementById('periodSelect').addEventListener('change', function() {
-    const d = chartData[this.value];
-    barChart.data.labels = d.labels;
-    barChart.data.datasets[0].data = d.values;
-    barChart.data.datasets[0].backgroundColor = d.values.map((_,i,a) => i===a.length-1 ? '#c8940e' : '#4a6741');
-    barChart.update();
-  });
-
-  /* Donut chart */
-  new Chart(document.getElementById('donutChart').getContext('2d'), {
-    type: 'doughnut',
-    data: {
-      labels: donutCats.map(c=>c.name),
-      datasets: [{ data: donutCats.map(c=>c.pct), backgroundColor: donutCats.map(c=>c.color), borderWidth:0, hoverOffset:6 }],
-    },
-    options: { responsive:true, maintainAspectRatio:false, cutout:'68%', plugins:{ legend:{ display:false }, tooltip:{ callbacks:{ label: c => ' ' + c.label + ' : ' + c.parsed + '%' } } } },
-  });
-
-  document.getElementById('legendList').innerHTML = donutCats.map(c => `
-    <div class="leg-item">
-      <div class="leg-left"><div class="leg-dot" style="background:${c.color}"></div><span class="leg-name">${c.name}</span></div>
-      <span class="leg-pct">${c.pct}%</span>
-    </div>`).join('');
+  /* Charts removed (évolution & répartition) */
 
   /* Transactions */
   function renderTx(data) {
@@ -175,5 +112,5 @@ document.addEventListener('DOMContentLoaded', () => {
     renderTx(transactions.filter(t => t.name.toLowerCase().includes(this.value.toLowerCase())));
   });
 
-  document.getElementById('exportBtn').addEventListener('click', () => showToast('Rapport exporté !'));
+  // Export button removed
 });

@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="svc-card-top">
             <span class="badge ${s.status}">${s.status === 'actif' ? 'Actif' : 'Inactif'}</span>
             <div class="svc-card-actions">
-              <button class="svc-action-btn edit" data-id="${s.id}" title="Modifier"><i class="fa fa-pen"></i></button>
               <button class="svc-action-btn del"  data-id="${s.id}" title="Supprimer"><i class="fa fa-trash"></i></button>
             </div>
           </div>
@@ -32,9 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="svc-price">${s.price}€ <small>/ jour</small></div>
             <div class="svc-rating"><i class="fa fa-star"></i> ${s.rating}</div>
           </div>
-        </div>
+                </div>
       </div>`).join('') + `
-      <button class="svc-add-card" id="btnAddCard"><i class="fa fa-plus"></i>Ajouter un service</button>`;
+        <button class="svc-add-card" id="btnAddCard"><i class="fa fa-plus"></i>Ajouter un service</button>`;
   }
 
   function renderTable(data) {
@@ -50,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <td><span style="color:var(--gold);font-weight:700"><i class="fa fa-star"></i> ${s.rating}</span></td>
         <td class="muted">${s.reservations}</td>
         <td style="text-align:right;display:flex;gap:6px;justify-content:flex-end">
-          <button class="svc-action-btn edit" data-id="${s.id}"><i class="fa fa-pen"></i></button>
           <button class="svc-action-btn del"  data-id="${s.id}"><i class="fa fa-trash"></i></button>
         </td>
       </tr>`).join('');

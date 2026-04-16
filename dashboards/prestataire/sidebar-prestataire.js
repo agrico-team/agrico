@@ -5,7 +5,6 @@ function getSidebarHTML(activeSection) {
     { section: 'services',       href: 'prestataire-services.html',       icon: 'fa-briefcase',     label: 'Mes services' },
     { section: 'reservations',   href: 'prestataire-reservations.html',   icon: 'fa-calendar',      label: 'Réservations' },
     { section: 'avis',           href: 'prestataire-avis.html',           icon: 'fa-star',          label: 'Avis' },
-    { section: 'disponibilites', href: 'prestataire-disponibilites.html', icon: 'fa-clock',         label: 'Disponibilités' },
     { section: 'revenus',        href: 'prestataire-revenus.html',        icon: 'fa-euro-sign',     label: 'Revenus' },
     { section: 'profil',         href: 'prestataire-profil.html',         icon: 'fa-user',          label: 'Profil' },
   ];

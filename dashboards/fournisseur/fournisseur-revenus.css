@@ -9,9 +9,6 @@
 .rev-icon.green  { background: var(--green-light);  color: var(--green-btn); }
 .rev-icon.blue   { background: var(--blue-light);   color: var(--blue); }
 .rev-icon.orange { background: var(--orange-light); color: var(--orange); }
-.rev-trend { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; font-weight: 700; }
-.rev-trend.up   { color: #22c55e; }
-.rev-trend.down { color: #ef4444; }
 .rev-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 5px; }
 .rev-value { font-family: var(--font-head); font-size: 1.95rem; font-weight: 700; color: var(--text); }
 

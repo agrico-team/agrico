@@ -46,10 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Status tabs removed (managed by actions) -->
 
     <!-- Table -->
-    <div class="table-card">
+      <div class="table-card">
       <div class="table-card-header">
         <h3>Liste des commandes</h3>
-        <button class="btn-outline" style="padding:7px 12px;font-size:.78rem;"><i class="fa fa-download"></i> Exporter</button>
       </div>
       <div class="table-wrap">
         <table class="data-table" id="cmdTable">

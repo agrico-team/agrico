@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="service-card-top">
           <span class="badge ${s.status}">${s.status === 'actif' ? 'Actif' : 'Inactif'}</span>
           <div class="service-card-actions">
-            <button class="svc-action-btn edit" title="Modifier"><i class="fa fa-pen"></i></button>
             <button class="svc-action-btn del" title="Supprimer" data-id="${s.id}"><i class="fa fa-trash"></i></button>
           </div>
         </div>
@@ -43,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="stat-card">
         <div class="stat-card-top">
           <div class="stat-icon-box blue"><i class="fa fa-briefcase"></i></div>
-          <button class="stat-edit-btn"><i class="fa fa-pen"></i></button>
         </div>
         <p class="stat-label">Services Actifs</p>
         <h3 class="stat-value">5</h3>
@@ -51,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="stat-card">
         <div class="stat-card-top">
           <div class="stat-icon-box green"><i class="fa fa-calendar-check"></i></div>
-          <button class="stat-edit-btn"><i class="fa fa-pen"></i></button>
         </div>
         <p class="stat-label">Total Réservations</p>
         <h3 class="stat-value">128</h3>
@@ -59,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="stat-card">
         <div class="stat-card-top">
           <div class="stat-icon-box gold"><i class="fa fa-euro-sign"></i></div>
-          <button class="stat-edit-btn"><i class="fa fa-pen"></i></button>
         </div>
         <p class="stat-label">Revenus Mensuels</p>
         <h3 class="stat-value">3 840€</h3>
@@ -67,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="stat-card">
         <div class="stat-card-top">
           <div class="stat-icon-box brown"><i class="fa fa-star"></i></div>
-          <button class="stat-edit-btn"><i class="fa fa-pen"></i></button>
         </div>
         <p class="stat-label">Note Moyenne</p>
         <h3 class="stat-value">4.9/5</h3>
@@ -76,20 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <!-- Chart + Timeline -->
     <div class="mid-grid">
-      <div class="chart-card">
-        <div class="chart-header">
-          <h3 class="chart-title">Revenus de la semaine</h3>
-          <div style="display:flex;align-items:center;gap:16px">
-            <div class="chart-legend"><span class="legend-dot-green"></span> Revenus (€)</div>
-            <select class="period-select" id="periodSelect">
-              <option value="semaine">Cette semaine</option>
-              <option value="mois">Ce mois</option>
-              <option value="annee">Cette année</option>
-            </select>
-          </div>
-        </div>
-        <div class="chart-wrap"><canvas id="revenusChart"></canvas></div>
-      </div>
+      <!-- Graph removed (revenus chart) -->
 
       <div class="timeline-card">
         <h3 class="timeline-title">Réservations du jour</h3>
@@ -135,54 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSidebar('dashboard');
   initModal();
 
-  /* ---- Chart ---- */
-  const chartData = {
-    semaine: { labels: ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'], values: [120,300,200,450,400,600,550] },
-    mois:    { labels: ['S1','S2','S3','S4'], values: [1200,1800,1400,2100] },
-    annee:   { labels: ['Jan','Fév','Mar','Avr','Mai','Juin','Juil','Août','Sep','Oct','Nov','Déc'], values: [2100,1800,2400,2900,2600,3200,3000,2800,3100,2900,2400,3800] },
-  };
-
-  const ctx = document.getElementById('revenusChart').getContext('2d');
-
-  function buildGradient(ctx) {
-    const g = ctx.createLinearGradient(0, 0, 0, 260);
-    g.addColorStop(0, 'rgba(74,103,65,0.18)');
-    g.addColorStop(1, 'rgba(74,103,65,0)');
-    return g;
-  }
-
-  const chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: chartData.semaine.labels,
-      datasets: [{
-        data: chartData.semaine.values,
-        borderColor: '#4a6741', borderWidth: 2.5,
-        pointBackgroundColor: '#4a6741', pointRadius: 4, pointHoverRadius: 6,
-        fill: true, backgroundColor: buildGradient(ctx),
-        tension: 0.4,
-      }],
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: { backgroundColor:'#fff', titleColor:'#1a2010', bodyColor:'#4a6741', borderColor:'#eaeae5', borderWidth:1, padding:12, cornerRadius:10, callbacks: { label: c => ' ' + c.parsed.y + ' €' } },
-      },
-      scales: {
-        x: { grid: { display:false }, border: { display:false }, ticks: { color:'#9ca3af', font:{ size:11 } } },
-        y: { grid: { color:'#f0f0f0' }, border: { display:false }, ticks: { color:'#9ca3af', font:{ size:11 } } },
-      },
-    },
-  });
-
-  document.getElementById('periodSelect').addEventListener('change', function() {
-    const d = chartData[this.value];
-    chart.data.labels = d.labels;
-    chart.data.datasets[0].data = d.values;
-    chart.data.datasets[0].backgroundColor = buildGradient(ctx);
-    chart.update();
-  });
+  /* Chart removed (revenus) */
 
   /* ---- Modal open ---- */
   const modalFields = `

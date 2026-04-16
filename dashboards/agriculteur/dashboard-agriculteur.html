@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="dashboard-agriculteur.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
@@ -92,7 +91,6 @@
           <p class="page-sub">Voici un aperçu de votre exploitation aujourd'hui.</p>
         </div>
         <div class="header-actions">
-          <button class="icon-btn" title="Calendrier"><i class="fa fa-calendar"></i></button>
           <button class="icon-btn" title="Notifications">
             <i class="fa fa-bell"></i>
             <span class="notif-dot"></span>
@@ -105,13 +103,9 @@
       <div class="stats-grid">
 
         <div class="stat-card">
-          <div class="stat-info">
+            <div class="stat-info">
             <p class="stat-label">Total Commandes</p>
             <h3 class="stat-value">24</h3>
-            <div class="stat-trend up">
-              <i class="fa fa-arrow-trend-up"></i>
-              <span>+12%</span>
-            </div>
           </div>
           <div class="stat-icon">
             <i class="fa fa-bag-shopping"></i>
@@ -119,13 +113,9 @@
         </div>
 
         <div class="stat-card">
-          <div class="stat-info">
+            <div class="stat-info">
             <p class="stat-label">Total Réservations</p>
             <h3 class="stat-value">8</h3>
-            <div class="stat-trend up">
-              <i class="fa fa-arrow-trend-up"></i>
-              <span>+5%</span>
-            </div>
           </div>
           <div class="stat-icon">
             <i class="fa fa-calendar-check"></i>
@@ -133,13 +123,9 @@
         </div>
 
         <div class="stat-card">
-          <div class="stat-info">
+            <div class="stat-info">
             <p class="stat-label">Total Dépenses</p>
             <h3 class="stat-value">4 250€</h3>
-            <div class="stat-trend down">
-              <i class="fa fa-arrow-trend-down"></i>
-              <span>-2%</span>
-            </div>
           </div>
           <div class="stat-icon">
             <i class="fa fa-chart-line"></i>
@@ -147,13 +133,9 @@
         </div>
 
         <div class="stat-card">
-          <div class="stat-info">
+            <div class="stat-info">
             <p class="stat-label">Demandes en attente</p>
             <h3 class="stat-value">3</h3>
-            <div class="stat-trend up">
-              <i class="fa fa-arrow-trend-up"></i>
-              <span>+1</span>
-            </div>
           </div>
           <div class="stat-icon">
             <i class="fa fa-clock"></i>
@@ -165,20 +147,7 @@
       <!-- ===== CHART + QUICK ACTIONS ===== -->
       <div class="mid-grid">
 
-        <!-- Chart -->
-        <div class="chart-card">
-          <div class="chart-header">
-            <h3 class="section-title">Graphique des dépenses</h3>
-            <select class="period-select" id="periodSelect">
-              <option value="6mois">6 derniers mois</option>
-              <option value="annee">Année 2024</option>
-              <option value="trimestre">Trimestre</option>
-            </select>
-          </div>
-          <div class="chart-wrap">
-            <canvas id="depensesChart"></canvas>
-          </div>
-        </div>
+        <!-- Graph removed (dépenses chart) -->
 
         <!-- Quick Actions Panel -->
         <div class="actions-panel">
@@ -191,9 +160,7 @@
             <button class="quick-btn secondary" id="btnReserve">
               <i class="fa fa-calendar-plus"></i> Réserver un service
             </button>
-            <button class="quick-btn secondary" id="btnSupport">
-              <i class="fa fa-headset"></i> Contacter Support
-            </button>
+            <!-- Bouton Contacter Support supprimé -->
           </div>
 
           <div class="conseil-box">

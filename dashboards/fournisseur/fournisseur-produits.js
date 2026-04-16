@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Table view -->
     <div class="table-view" id="tableView">
       <div class="table-card">
-        <div class="table-card-header"><h3>Liste des produits</h3><button class="btn-outline"><i class="fa fa-download"></i> Exporter</button></div>
+        <div class="table-card-header"><h3>Liste des produits</h3></div>
         <div class="table-wrap">
           <table class="data-table">
             <thead><tr><th>Produit</th><th>Catégorie</th><th>Stock</th><th>Prix</th><th>Statut</th><th style="text-align:right">Actions</th></tr></thead>

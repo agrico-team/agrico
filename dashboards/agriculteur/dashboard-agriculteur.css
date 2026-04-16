@@ -375,15 +375,7 @@ a { text-decoration: none; color: inherit; }
   line-height: 1;
 }
 
-.stat-trend {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-.stat-trend.up   { color: #22c55e; }
-.stat-trend.down { color: #ef4444; }
+/* trend indicators removed for cleaner stat cards */
 
 .stat-icon {
   width: 52px; height: 52px;

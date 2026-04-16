@@ -28,8 +28,7 @@
 .stat-icon-box.green  { background: var(--green-btn); }
 .stat-icon-box.gold   { background: var(--gold); }
 .stat-icon-box.brown  { background: var(--brown); }
-.stat-edit-btn { border: none; background: none; color: #ccc; cursor: pointer; font-size: 0.85rem; transition: color 0.15s; }
-.stat-edit-btn:hover { color: var(--text-muted); }
+.stat-edit-btn { display: none; }
 .stat-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
 .stat-value { font-family: var(--font-head); font-size: 2rem; font-weight: 700; color: var(--text); margin-top: 4px; line-height: 1.1; }
 
@@ -117,7 +116,7 @@
   display: flex; align-items: center; justify-content: center; font-size: 0.82rem;
   transition: background 0.15s;
 }
-.svc-action-btn.edit  { background: var(--blue-light);  color: var(--blue); }
+.svc-action-btn.edit  { display: none; }
 .svc-action-btn.del   { background: #fee2e2; color: var(--red); }
 .svc-action-btn:hover { opacity: 0.85; }
 .service-name { font-family: var(--font-head); font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }

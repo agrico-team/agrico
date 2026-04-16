@@ -94,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <option value="en-cours">En cours</option>
           <option value="livre">Livré</option>
         </select>
-        <button class="btn-outline" id="exportBtn"><i class="fa fa-download"></i> Exporter</button>
       </div>
     </div>
 
@@ -161,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   document.getElementById('searchOrd').addEventListener('input', applyFilters);
   document.getElementById('filterOrd').addEventListener('change', applyFilters);
-  document.getElementById('exportBtn').addEventListener('click', () => showToast('Export CSV téléchargé !'));
+  // Export button removed
 
   /* View toggle */
   document.getElementById('vKanban').addEventListener('click', function() {

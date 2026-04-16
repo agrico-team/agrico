@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <header class="main-header">
       <div><h1 class="page-title">Inventaire</h1><p class="page-sub">Gérez vos niveaux de stock et recevez des alertes automatiques.</p></div>
       <div class="header-actions">
-        <button class="btn-gold" id="btnExport"><i class="fa fa-download"></i> Exporter</button>
         <div class="avatar">AF</div>
       </div>
     </header>
@@ -82,13 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <!-- Layout: chart + alerts -->
     <div class="inv-layout">
-      <!-- Distribution chart -->
-      <div class="chart-card">
-        <div class="chart-header">
-          <h3 class="chart-title">Répartition du stock par catégorie</h3>
-        </div>
-        <div class="chart-wrap"><canvas id="stockChart"></canvas></div>
-      </div>
+      <!-- Graph removed (répartition du stock) -->
 
       <!-- Alerts panel -->
       <div class="alerts-panel">
@@ -151,28 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModal();
   renderTable(stock);
 
-  /* Chart */
-  const cats = {};
-  stock.forEach(s => { cats[s.cat] = (cats[s.cat] || 0) + s.qty; });
-  const catLabels = Object.keys(cats);
-  const catValues = Object.values(cats);
-  const colors = ['#c8940e','#4a6741','#58748c','#f57c00','#e53935','#94a3b8'];
-
-  new Chart(document.getElementById('stockChart').getContext('2d'), {
-    type: 'bar',
-    data: {
-      labels: catLabels,
-      datasets: [{ data: catValues, backgroundColor: colors.slice(0, catLabels.length), borderRadius: 6, borderSkipped: false }],
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend:{ display:false }, tooltip:{ backgroundColor:'#fff', titleColor:'#1a1a10', bodyColor:'#c8940e', borderColor:'#e8e6de', borderWidth:1, padding:12, cornerRadius:10, callbacks:{ label: c => ' ' + c.parsed.y + ' unités' } } },
-      scales: {
-        x: { grid:{ display:false }, border:{ display:false }, ticks:{ color:'#9ca3af', font:{ size:11 } } },
-        y: { grid:{ color:'#f0f0f0' }, border:{ display:false }, ticks:{ color:'#9ca3af', font:{ size:11 } } },
-      },
-    },
-  });
+  /* Chart removed (répartition du stock) */
 
   /* Filters */
   function applyFilters() {
@@ -183,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('searchStock').addEventListener('input', applyFilters);
   document.getElementById('filterStock').addEventListener('change', applyFilters);
 
-  document.getElementById('btnExport').addEventListener('click', () => showToast('Inventaire exporté !'));
+  // Export button removed
 
   /* Update stock modal */
   document.addEventListener('click', e => {

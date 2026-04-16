@@ -21,9 +21,6 @@
 .dep-icon.green { background: var(--green-light); color: var(--green-btn); }
 .dep-icon.blue  { background: var(--blue-light);  color: var(--blue); }
 .dep-icon.gold  { background: var(--gold-light);  color: var(--gold); }
-.dep-trend { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; font-weight: 700; }
-.dep-trend.up   { color: #22c55e; }
-.dep-trend.down { color: #ef4444; }
 .dep-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
 .dep-value { font-family: var(--font-head); font-size: 2rem; font-weight: 700; color: var(--text); }
 
